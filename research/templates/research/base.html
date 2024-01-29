@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Nursing Research{% endblock %}</title>
+    <!-- <link rel="stylesheet" href="{% static 'research/base.css' %}"> -->
+    <style>
+                body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #336699;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #4d94ff;
+            padding: 0.5em;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 1em;
+            margin: 0 0.5em;
+            font-weight: bold;
+        }
+
+        section {
+            margin: 1em;
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #336699;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Additional Styles for Better UI */
+        .register-section {
+            max-width: 400px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .register-section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .register-section input {
+            margin-bottom: 1em;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .register-section input[type="submit"] {
+            background-color: #336699;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>{% block header %}Nursing Research{% endblock %}</h1>
+    </header>
+
+    <nav>
+        <a href="{% url 'homepage' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'login' %}" id="login-link">Login</a>
+        <a href="{% url 'register' %}" id="signup-link">Signup</a>
+    </nav>
+
+    <section>
+        {% block content %}{% endblock %}
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Nursing Research | All rights reserved</p>
+    </footer>
+</body>
+
+</html>

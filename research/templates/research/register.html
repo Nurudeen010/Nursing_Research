@@ -1,0 +1,17 @@
+{% extends 'research/base.html' %}
+
+{% block title %}Register - Nursing Research{% endblock %}
+
+{% block header %}Register - Nursing Research{% endblock %}
+
+{% block content %}
+    <div class="register-section">
+        <h2>Sign Up</h2>
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Sign Up" class="button">
+        </form>
+        <h3>Already have an account? <strong><a href="{% url 'login' %}">Sign In</a></strong> here</h3>
+    </div>
+{% endblock %}

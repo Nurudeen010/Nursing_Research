@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Nursing Research</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #336699;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav {
+            background-color: #4d94ff;
+            text-align: center;
+            padding: 0.5em 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            margin: 0 0.5em;
+            font-weight: bold;
+        }
+
+        .dashboard-section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .research-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .research-item {
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .research-item:hover {
+            transform: scale(1.05);
+        }
+
+        .research-item h3 {
+            color: #336699;
+            margin-bottom: 0.5em;
+        }
+
+        .research-item p {
+            color: #555;
+        }
+
+        .logout-section {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .logout-section a {
+            color: #336699;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Dashboard - Nursing Research</h1>
+    </header>
+
+    <nav>
+        <a href="{% url 'logout' %}" id="logout-link">Logout</a>
+    </nav>
+
+    <div class="dashboard-section">
+        <h2>Welcome to the Nursing Research Dashboard</h2>
+        <p>Explore the amazing world of nursing research and discover groundbreaking studies that have made a significant impact on healthcare.</p>
+
+        <ul class="research-list">
+            {% for research_item in research %}
+                <li class="research-item">
+                    <h3>{{ research_item.title }}</h3>
+                    <p>{{ research_item.description }}</p>
+                    <!-- Add other fields of your Research model as needed -->
+                </li>
+            {% endfor %}
+        </ul>
+
+        <p>Stay tuned for more exciting stories and updates from the forefront of nursing research!</p>
+    </div>
+
+    <div class="logout-section">
+        <p>You are currently logged in. <a href="{% url 'logout' %}" id="logout">Logout</a></p>
+    </div>
+
+    <script>
+        document.getElementById('logout-link').addEventListener('click', function () {
+            alert('Logout clicked. Redirect or perform logout logic here.');
+        });
+
+        document.getElementById('logout').addEventListener('click', function () {
+            alert('Logout clicked. Redirect or perform logout logic here.');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{% extends 'research/base.html' %}
+
+{% block title %}Login - Nursing Research{% endblock %}
+
+{% block header %}Login - Nursing Research{% endblock %}
+
+{% block content %}
+    <div class="login-section">
+        <h2>Login</h2>
+        <form action="{% url 'login' %}" method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ loginform.as_p }}
+            <input type="submit" value="Submit" class="button">
+        </form>
+    </div>
+{% endblock %}
